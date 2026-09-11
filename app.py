@@ -9,7 +9,8 @@ load_dotenv()
 
 llm=HuggingFaceEndpoint(
     repo_id="Qwen/Qwen2.5-Coder-7B-Instruct",
-    task="text-generation"
+    task="text-generation",
+    max_new_tokens=1000
 )
 
 model1=ChatHuggingFace(llm=llm)
@@ -17,7 +18,7 @@ model1=ChatHuggingFace(llm=llm)
 model2=ChatHuggingFace(llm=llm)
 
 prompt1=PromptTemplate(
-    template="generate short and simple notes on the following text \n {text}",
+    template="generate short notes on the following text \n {text}",
     input_variables=["text"]
 )
 
